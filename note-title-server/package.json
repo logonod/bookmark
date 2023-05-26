@@ -1,0 +1,29 @@
+{
+  "name": "note-fetch-title",
+  "version": "0.0.1",
+  "description": "note-fetch-title is a webpage title spider written with Nodejs.",
+  "main": "index.js",
+  "scripts": {
+    "service": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.dev.tencent.com:logonod/note-fetch-title.git"
+  },
+  "author": "logonod",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "bluebird": "3.5.3",
+    "cheerio": "1.0.0-rc.2",
+    "cookie-parser": "1.4.4",
+    "express": "4.16.4",
+    "iconv-lite": "0.4.24",
+    "redis": "2.8.0",
+    "request": "2.88.0",
+    "type-is": "1.6.16"
+  },
+  "devDependencies": {
+    "eslint": "5.6.1"
+  }
+}

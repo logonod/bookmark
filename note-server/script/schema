@@ -1,0 +1,46 @@
+CREATE DATABASE note;
+
+USE note;
+
+SET sql_mode = '';
+
+CREATE TABLE user (
+        id serial PRIMARY KEY,
+        phone CHAR(15) NOT NULL,
+        password CHAR(60) NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE KEY `phone_unique_index` (`phone`)
+);
+
+CREATE TABLE userid_tagname_map (
+        id serial PRIMARY KEY,
+        user_id BIGINT UNSIGNED NOT NULL,
+        tag_name CHAR(15) NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES user(id),
+        UNIQUE KEY `userid_tagname_unique_index` (`user_id`, `tag_name`),
+        KEY `userid_createat_index` (`user_id`, `created_at` desc)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE userid_tagname_post_map (
+        id serial PRIMARY KEY,
+        user_id BIGINT UNSIGNED NOT NULL,
+        tag_name CHAR(15) NOT NULL,
+        type CHAR(10) NOT NULL,
+        title CHAR(40) NOT NULL,
+        cover CHAR(120) NOT NULL,
+        description CHAR(120) NOT NULL,
+        url TEXT NOT NULL,
+        url_hash CHAR(50) NOT NULL,
+        site CHAR(120) NOT NULL,
+        site_favicon CHAR(120) NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES user(id),
+        UNIQUE KEY `userid_tagname_urlhash_unique_index` (`user_id`, `tag_name`, `url_hash`),
+        KEY `userid_tagname_createdate_index` (`user_id`, `tag_name`, `created_at` desc),
+        KEY `userid_postid_index` (`user_id`, `post_id`),
+        KEY `userid_createdate_index` (`user_id`, `created_at` desc)
+) DEFAULT CHARSET=utf8;

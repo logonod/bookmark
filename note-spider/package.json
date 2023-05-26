@@ -1,0 +1,29 @@
+{
+  "name": "note-spider",
+  "version": "0.0.1",
+  "description": "note-spider is a webpage fulltext spider written with Nodejs.",
+  "main": "index.js",
+  "scripts": {
+    "service": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.dev.tencent.com:logonod/note-fetch-title.git"
+  },
+  "author": "logonod",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "jackd": "1.2.6"
+  },
+  "devDependencies": {
+    "puppeteer": "^1.20.0",
+    "bluebird": "3.5.3",
+    "cookie-parser": "1.4.4",
+    "express": "4.16.4",
+    "iconv-lite": "0.4.24",
+    "redis": "2.8.0",
+    "request": "2.88.0",
+    "type-is": "1.6.16"
+  }
+}

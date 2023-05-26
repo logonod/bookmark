@@ -1,0 +1,11 @@
+SecretKey: 123
+DatabaseURI: mongodb://localhost:27017
+Port: 8000
+Cache:
+  DB: 0
+  Password:
+  Addr: localhost:6379
+App:
+  SessionTTL: 2592000
+Mq:
+  Addr: 192.168.1.137:11300
